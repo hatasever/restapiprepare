@@ -28,12 +28,14 @@ class requestPrepare
     public function sendPublicRequest(string $method,string $subUrl, $params = [] , $body = [])
     {
         $convertingURL = $this->baseUrl. (substr($this->baseUrl, -1) == '/' ? $subUrl : '/'.$subUrl);
-     
-        $res = $this->connect->request(strtoupper($method), $convertingURL, [
+        $req = new Request(strtoupper($method), $convertingURL, [
+            'headers' => $this->headers,
             'body' => json_encode($body)
         ]);
+        $res = $this->connect->send($req);
 
-        return $res;
+        return $res->getBody();
+
 
     }
 
