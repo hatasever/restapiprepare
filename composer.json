@@ -1,0 +1,20 @@
+{
+    "name": "hatasever/rest-api-prepare",
+    "description": "RestApi için kolay yapılandırma",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hatasever\\RestApiPrepare\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hakan ATASEVER"
+        }
+    ],
+    "require": {
+            "guzzlehttp/guzzle": "^7.9.2"
+    },
+    "minimum-stability": "stable"
+}
