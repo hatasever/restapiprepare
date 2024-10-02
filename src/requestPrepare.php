@@ -7,7 +7,7 @@ use GuzzleHttp\Psr7\Request;
 class requestPrepare
 {
 
-    protected $baseUrl;
+    protected $baseUrl = 'https://feed-definition.foreks.com/symbol/';
 
     protected $method;
 
@@ -17,12 +17,22 @@ class requestPrepare
 
     protected $connect;
 
-    function __construct(string $baseUrl, array $headers)
+    function __construct(array $headers = NULL)
     {
-        $this->baseUrl = $baseUrl;
         $this->headers = $headers;
+        if (isset($headers)) {
+            $this->connect = new Client(["headers" => [
+                'Content-Type' => 'Application/json',
+                'Access-Control-Allow-Origin' => '*',
+                'Access-Control-Allow-Methods' => 'GET, POST',
+                'Access-Control-Allow-Headers' =>  "Content-Type, Authorization"
+            ]]);
+        }
+        else
+        {
+            $this->connect = new Client(["headers" => $headers]);
+        }
 
-        $this->connect = new Client(["headers" => $headers]);
     }
 
     public function sendPublicRequest(string $method,string $subUrl, $params = [] , $body = [])
@@ -35,7 +45,6 @@ class requestPrepare
         $res = $this->connect->send($req);
 
         return $res->getBody();
-
 
     }
 
