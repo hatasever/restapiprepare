@@ -17,5 +17,5 @@
     "require": {
             "guzzlehttp/guzzle": "^7.9.2"
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }
