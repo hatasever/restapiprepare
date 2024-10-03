@@ -44,9 +44,7 @@ class requestPrepare
         ]);
         $res = $this->connect->send($req);
 
-        return $res->getBody();
+        return json_decode($res->getBody());
 
     }
-
-
 }
