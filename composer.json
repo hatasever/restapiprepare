@@ -3,7 +3,7 @@
     "description": "RestApi için kolay yapılandırma",
     "type": "library",
     "license": "MIT",
-    "version": "1.0",
+    "version": "1.0.0",
     "autoload": {
         "psr-4": {
             "Hatasever\\RestApiPrepare\\": "src/"
@@ -17,7 +17,7 @@
     "require": {
             "guzzlehttp/guzzle": "^7.9.2"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require-dev": {
         "orchestra/testbench": "10.x-dev"
     }
